@@ -19,6 +19,10 @@ const makeRat = (a: number, b: number): Pair => pair(a, b);
 const numer = (pair: Pair): number => head(pair);
 
 const denom = (pair: Pair): number => tail(pair);
+// or
+// const makeRat = pair
+// const numer = head
+// const denom = tail
 
 /** */
 const addRat = (a: Pair, b: Pair): Pair =>

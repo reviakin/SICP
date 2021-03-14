@@ -14,11 +14,11 @@ def tail(pair: [int, int]) -> int:
     return pair[1]
 
 
+""""""
+
+
 def make_rat(a: int, b: int) -> [int, int]:
     return pair(a, b)
-
-
-""""""
 
 
 def numer(pair: [int, int]) -> int:
@@ -27,6 +27,14 @@ def numer(pair: [int, int]) -> int:
 
 def denom(pair: [int, int]) -> int:
     return tail(pair)
+
+
+# or
+# make_rat = pair
+# numer = head
+# denom = tail
+
+""""""
 
 
 def add_rat(a: [int, int], b: [int, int]) -> [int, int]:
