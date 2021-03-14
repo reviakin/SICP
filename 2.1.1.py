@@ -21,12 +21,21 @@ def greatest_common_divisors(a, b):
     return greatest_common_divisors(b, a % b)
 
 
+def sign(x):
+    if x < 0:
+        return - 1
+    elif x > 0:
+        return 1
+    else:
+        return 0
+
+
 """"""
 
 
 def make_rat(a, b):
     g = greatest_common_divisors(a, b)
-    return pair(a//g, b//g)
+    return pair(sign(g)*sign(a)*abs(a//g), abs(b//g))
 
 
 def numer(pair: [int, int]) -> int:

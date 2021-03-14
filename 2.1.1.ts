@@ -16,11 +16,15 @@ const tail = (pair: Pair): number => pair[1];
 const greatestCommonDivisors = (a: number, b: number): number =>
   b === 0 ? a : greatestCommonDivisors(b, a % b);
 
+const sign = (x: number): number => (x < 0 ? -1 : x > 0 ? 1 : 0);
+
+const abs = (x: number): number => (x < 0 ? -x : x);
+
 /** */
 
 const makeRat = (a: number, b: number): Pair => {
   const g = greatestCommonDivisors(a, b);
-  return pair(a / g, b / g);
+  return pair(sign(g) * sign(a) * abs(a / g), abs(b / g));
 };
 
 const numer = (pair: Pair): number => head(pair);
