@@ -38,3 +38,8 @@ const isEqualRat = (a: Pair, b: Pair): boolean =>
 
 const printRat = (pair: Pair): void =>
   console.log(`${numer(pair)} / ${denom(pair)}`);
+
+/** */
+const oneHalf = makeRat(1, 2);
+const oneThird = makeRat(1, 3);
+printRat(addRat(oneHalf, oneThird));

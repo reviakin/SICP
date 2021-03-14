@@ -18,6 +18,9 @@ def make_rat(a: int, b: int) -> [int, int]:
     return pair(a, b)
 
 
+""""""
+
+
 def numer(pair: [int, int]) -> int:
     return head(pair)
 
@@ -53,4 +56,7 @@ def print_rat(pair: [int, int]):
     print(f"{numer(pair)} / {denom(pair)}")
 
 
-print_rat(make_rat(2, 4))
+""""""
+one_half = make_rat(1, 2)
+one_third = make_rat(1, 3)
+print_rat(add_rat(one_half, one_third))
