@@ -14,11 +14,19 @@ def tail(pair: [int, int]) -> int:
     return pair[1]
 
 
+def greatest_common_divisors(a, b):
+    if b == 0:
+        return a
+
+    return greatest_common_divisors(b, a % b)
+
+
 """"""
 
 
-def make_rat(a: int, b: int) -> [int, int]:
-    return pair(a, b)
+def make_rat(a, b):
+    g = greatest_common_divisors(a, b)
+    return pair(a//g, b//g)
 
 
 def numer(pair: [int, int]) -> int:
@@ -30,7 +38,6 @@ def denom(pair: [int, int]) -> int:
 
 
 # or
-# make_rat = pair
 # numer = head
 # denom = tail
 
@@ -68,3 +75,6 @@ def print_rat(pair: [int, int]):
 one_half = make_rat(1, 2)
 one_third = make_rat(1, 3)
 print_rat(add_rat(one_half, one_third))
+
+
+""""""

@@ -13,14 +13,21 @@ const head = (pair: Pair): number => pair[0];
 
 const tail = (pair: Pair): number => pair[1];
 
+const greatestCommonDivisors = (a: number, b: number): number =>
+  b === 0 ? a : greatestCommonDivisors(b, a % b);
+
 /** */
-const makeRat = (a: number, b: number): Pair => pair(a, b);
+
+const makeRat = (a: number, b: number): Pair => {
+  const g = greatestCommonDivisors(a, b);
+  return pair(a / g, b / g);
+};
 
 const numer = (pair: Pair): number => head(pair);
 
 const denom = (pair: Pair): number => tail(pair);
+
 // or
-// const makeRat = pair
 // const numer = head
 // const denom = tail
 
