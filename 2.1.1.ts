@@ -35,3 +35,6 @@ const divRat = (a: Pair, b: Pair): Pair =>
 
 const isEqualRat = (a: Pair, b: Pair): boolean =>
   numer(a) * denom(b) === numer(b) * denom(a);
+
+const printRat = (pair: Pair): void =>
+  console.log(`${numer(pair)} / ${denom(pair)}`);

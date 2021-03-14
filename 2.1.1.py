@@ -47,3 +47,10 @@ def div_rat(a: [int, int], b: [int, int]) -> [int, int]:
 
 def equal_rat(a: [int, int], b: [int, int]) -> bool:
     return numer(a) * denom(b) == numer(b) * denom(a)
+
+
+def print_rat(pair: [int, int]):
+    print(f"{numer(pair)} / {denom(pair)}")
+
+
+print_rat(make_rat(2, 4))
