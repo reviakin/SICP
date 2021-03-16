@@ -43,3 +43,17 @@ const printPoint = (point: Point) =>
 const segment = makeSegment(makePoint(123, 2345), makePoint(2345, 546));
 
 printPoint(getMiddleSegment(segment));
+
+export {
+  makePair,
+  getHead,
+  getTail,
+  makePoint,
+  getPointX,
+  getPointY,
+  makeSegment,
+  getStartSegment,
+  getEndSegment,
+  getMiddleSegment,
+  Point,
+};
