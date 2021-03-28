@@ -22,14 +22,14 @@ const abs = (x: number): number => (x < 0 ? -x : x);
 
 /** */
 
-const makeRat = (a: number, b: number): Pair => {
+export const makeRat = (a: number, b: number): Pair => {
   const g = greatestCommonDivisors(a, b);
   return pair(sign(g) * sign(a) * abs(a / g), abs(b / g));
 };
 
-const numer = (pair: Pair): number => head(pair);
+export const numer = (pair: Pair): number => head(pair);
 
-const denom = (pair: Pair): number => tail(pair);
+export const denom = (pair: Pair): number => tail(pair);
 
 // or
 // const numer = head
