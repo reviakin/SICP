@@ -19,18 +19,18 @@ const getHead = <T>(p:[T,T]): T => p[0];
 const getTail = <T>(p:[T, T]) :T => p[1];
 
 /** */
-const makeInterval = (a: number, b: number) => 
-    makePair<number>(a, b);
+const makeInterval = (lower: number, upper: number) => 
+    makePair<number>(lower, upper);
 
 const getUpperBound = (interval:[number, number]) => 
-    getHead<number>(interval);
-
-const getLoweBound = (interval:[number, number]) => 
     getTail<number>(interval);
+
+const getLowerBound = (interval:[number, number]) => 
+    getHead<number>(interval);
 
 /** */
 export {
     makeInterval, 
     getUpperBound, 
-    getLoweBound,
+    getLowerBound,
 }
