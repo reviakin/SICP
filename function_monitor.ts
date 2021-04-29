@@ -6,7 +6,7 @@
 function make_monitor(f: Function) {
     let inner_counter = 0;
 
-    return (param: 'how many?' | 'reset count' | any) => {
+    return (param?: 'how many?' | 'reset count' | any) => {
         if (param === 'how many?') return inner_counter;
         if (param === 'reset count') return (inner_counter = 0);
 
