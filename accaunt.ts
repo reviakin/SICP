@@ -70,19 +70,19 @@ function make_account_with_password_with_guard(
 
     const PASSWORD_ERROR_MAX_COUNT = 7;
 
-    let get_monitored_password_error = make_monitor(get_password_error);
+    let monitored_password_error = make_monitor(get_password_error);
 
     function password_required(operation: Function) {
         return (_password: string, amount: number) => {
             if (_password !== password) {
                 if (
-                    get_monitored_password_error('how many?') <
+                    monitored_password_error('how many?') <
                     PASSWORD_ERROR_MAX_COUNT
                 ) {
-                    return get_monitored_password_error();
+                    return monitored_password_error();
                 } else return call_the_cops();
             }
-            get_monitored_password_error('reset count');
+            monitored_password_error('reset count');
             return operation(amount);
         };
     }
