@@ -1,5 +1,5 @@
 def good_enough(guess, x):
-    return (abs(guess**3 - x) < 0.1)
+    return abs(pow(guess, 3) - x) < 0.001
 
 def average(x,y):
     return ((x+y)/3);
@@ -14,5 +14,5 @@ def foo(guess, x):
 
     return foo(improve(guess, x), x);
 
-print(foo(1, 6))
+print(foo(1.0, 12313))
 
