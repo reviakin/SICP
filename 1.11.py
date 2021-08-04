@@ -14,7 +14,6 @@ def f_iterative(n):
     def iter(a, b, c, count):
         if count == 0: return c;
         
-        print(a, b, c, count)
         return iter(a+ b + c, a, b, count-1)
 
     if n < 3: return n
