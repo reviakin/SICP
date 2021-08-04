@@ -11,12 +11,17 @@ def f_recursive(n):
 
 
 def f_iterative(n):
-    def fib_Iter(a, b, c, count):
-        if count == 0:
-            return c
-        return fib_Iter(a + b + c, a + b, a, count - 1)
-    return fib_Iter(1, 0, 0, n)
+    def iter(a, b, c, count):
+        if count == 0: return c;
+        
+        print(a, b, c, count)
+        return iter(a+ b + c, a, b, count-1)
+
+    if n < 3: return n
+
+    return iter(2, 1, 0, n)
+        
 
 
-print(f_recursive(90))
-print(f_recursive(90))
+print(f_recursive(9))
+print(f_iterative(9))
