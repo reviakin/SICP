@@ -48,8 +48,8 @@ function make_account_with_password(balance: number, password: string) {
 
 /**
  * @module 3.4.
- * @param {number} balance 
- * @param {string} password 
+ * @param {number} balance
+ * @param {string} password
  * @returns {Function}
  */
 function make_account_with_password_with_guard(
@@ -90,6 +90,7 @@ function make_account_with_password_with_guard(
     function deposit(amount: number) {
         return (balance += amount);
     }
+
     function withdraw(amount: number) {
         if (balance < amount) return get_error('not enough money');
         return (balance -= amount);
@@ -101,6 +102,69 @@ function make_account_with_password_with_guard(
         return get_error('unknown operator');
     }
     return dispatch;
+}
+
+class Account {
+    balance: number;
+
+    constructor(
+        balance: number
+    ) {
+        this.balance = balance;
+    }
+
+    protected deposit(amount: number) {
+        return (this.balance += amount);
+    }
+
+    protected withdraw(amount: number) {
+        if (this.balance < amount) {
+            throw 'not enough money';
+        }
+        return (this.balance -= amount);
+    }
+
+    dispatch(operator: string) {
+        if (operator === 'deposit') return this.deposit;
+        if (operator === 'withdraw') return this.withdraw;
+
+        throw 'unknown operator';
+    }
+}
+
+class AccountWithPassword extends Account {
+    password: string;
+    constructor(balance: number, password: string) {
+        super(balance);
+        this.password = password;
+    }
+
+    password_required(operation: (mount: number) => number) {
+        return (_password: string, amount: number) => {
+            if (_password !== this.password) {
+                throw 'invalid password';
+            }
+            return operation(amount);
+        };
+    }
+
+    dispatch(operator: string) {
+        if (operator === 'deposit') return this.password_required(this.deposit);
+        if (operator === 'withdraw') return this.password_required(this.withdraw);
+
+        throw 'unknown operator';
+    }
+}
+
+function make_joint(guarded_account, password, new_password){
+    try {
+        guarded_account('deposit')(password, 0)
+        return (operation) => {
+            
+        }
+    } catch (error) {
+        throw 'invalid password'
+    }
 }
 
 export {
