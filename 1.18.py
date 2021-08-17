@@ -9,12 +9,13 @@ def even(a):
 
 
 def mult(a, b): 
-
+    # see http://www.solipsys.co.uk/new/RussianPeasantMultiplication.html?HN_20150802
     def make_russian_peasant_multiplication(c, d, e = 0):
-        if c == 0: return e
+        if c == 0: 
+            return e
         if not even(c):
-            return make_mult(half(c), double(d), e + d)
-        return make_mult(half(c), double(d), e)
+            return make_russian_peasant_multiplication(half(c), double(d), e + d)
+        return make_russian_peasant_multiplication(half(c), double(d), e)
     
     return make_russian_peasant_multiplication(a, b)
 
