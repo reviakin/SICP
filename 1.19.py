@@ -26,4 +26,16 @@ def fib(n):
 
 print(fib(2)) 
 print(fib(5)) 
-print(fib(20)) 
+print(fib(20))
+
+def fib_r(n):
+    if n < 2:
+        return n
+
+    return fib_r(n - 1) + fib_r(n - 2)
+
+print(fib_r(2)) 
+print(fib_r(5)) 
+print(fib_r(20))
+
+
